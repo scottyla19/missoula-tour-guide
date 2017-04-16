@@ -17,12 +17,12 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SchoolsFragment.OnFragmentInteractionListener} interface
+ * {@link DiningFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SchoolsFragment#newInstance} factory method to
+ * Use the {@link DiningFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SchoolsFragment extends Fragment {
+public class DiningFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -34,7 +34,7 @@ public class SchoolsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public SchoolsFragment() {
+    public DiningFragment() {
         // Required empty public constructor
     }
 
@@ -44,11 +44,11 @@ public class SchoolsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SchoolsFragment.
+     * @return A new instance of fragment DiningFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SchoolsFragment newInstance(String param1, String param2) {
-        SchoolsFragment fragment = new SchoolsFragment();
+    public static DiningFragment newInstance(String param1, String param2) {
+        DiningFragment fragment = new DiningFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -72,16 +72,23 @@ public class SchoolsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.word_lits, container, false);
         final ArrayList<HoodLocation> locs = new ArrayList<HoodLocation>();
 //
-        locs.add(new HoodLocation("Sentinel High School","901 South Ave. W", Uri.parse("geo:46.847126, -114.009570?z=18"),"Grades 9-12"));
-        locs.add(new HoodLocation("Washington Middle School","645 W Central Ave, Missoula, MT 59801", Uri.parse("geo:46.850220, -114.006706?z=18"),"Grades 6-8"));
-        locs.add(new HoodLocation("Lewis and Clark Elementary","2901 Park St, Missoula, MT 59801", Uri.parse("geo:46.844243, -114.003219?z=18"),"Grades K-5"));
-        locs.add(new HoodLocation("Russell Elementary School","3216 S Russell St, Missoula, MT 59801", Uri.parse("geo:46.841076, -114.017504?z=18"),"Grades K-5"));
+        locs.add(new HoodLocation("Drum Coffee","600 South Ave W, Missoula, MT 59801", Uri.parse("geo:46.849101, -114.006411?z=18"), "Coffee and treats"));
+        locs.add(new HoodLocation("Taco Del Sol","1116 W Central Ave, Missoula, MT 59801", Uri.parse("geo:46.851100, -114.015691?z=18"), "Burrito shop" ));
+        locs.add(new HoodLocation("Staggering Ox","1220 SW Higgins Ave # 4, Missoula, MT 59803", Uri.parse("geo:46.834753, -114.016093?z=18"), "Sandwich shop" ));
+        locs.add(new HoodLocation("Dairy Queen","1735 S Higgins Ave, Missoula, MT 59801", Uri.parse("geo:46.854601, -113.997801?z=18"), "Ice cream" ));
+        locs.add(new HoodLocation("El Diablo","1429 S Higgins Ave, Missoula, MT 59801", Uri.parse("geo:46.857384, -113.997683?z=18"), "Burrito shop" ));
+        locs.add(new HoodLocation("Krispy Kreme Doughnuts","1025 W Central Ave, Missoula, MT 59801", Uri.parse("geo:46.850440, -114.013359?z=18"), "Doughnuts" ));
+        locs.add(new HoodLocation("Tagliare Deli","1433 S Higgins Ave, Missoula, MT 59801", Uri.parse("geo:46.857285, -113.997728?z=18"), "Deli and sandwich shop" ));
+        locs.add(new HoodLocation("Acropolis Greek Gyros","117 South Ave W #3, Missoula, MT 59801", Uri.parse("geo:46.848601, -113.998283?z=18"), "Greek cuisine" ));
+        locs.add(new HoodLocation("Subway","2325 S Higgins Ave, Missoula, MT 59801", Uri.parse("geo:46.849140, -113.997559?z=18"), "Sandwich shop" ));
+
+
 
 
         HoodLocationAdapter itemsAdapter = new HoodLocationAdapter(this.getContext(), R.layout.list_item, locs);
         ListView listView = (ListView) rootView.findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
-        listView.setBackgroundColor(getResources().getColor(R.color.colorSchools));
+        listView.setBackgroundColor(getResources().getColor(R.color.colorDining));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

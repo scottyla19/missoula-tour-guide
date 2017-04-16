@@ -17,12 +17,12 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SchoolsFragment.OnFragmentInteractionListener} interface
+ * {@link ShoppingFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SchoolsFragment#newInstance} factory method to
+ * Use the {@link ShoppingFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SchoolsFragment extends Fragment {
+public class ShoppingFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -34,7 +34,7 @@ public class SchoolsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public SchoolsFragment() {
+    public ShoppingFragment() {
         // Required empty public constructor
     }
 
@@ -44,11 +44,11 @@ public class SchoolsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SchoolsFragment.
+     * @return A new instance of fragment ShoppingFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SchoolsFragment newInstance(String param1, String param2) {
-        SchoolsFragment fragment = new SchoolsFragment();
+    public static ShoppingFragment newInstance(String param1, String param2) {
+        ShoppingFragment fragment = new ShoppingFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -72,16 +72,22 @@ public class SchoolsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.word_lits, container, false);
         final ArrayList<HoodLocation> locs = new ArrayList<HoodLocation>();
 //
-        locs.add(new HoodLocation("Sentinel High School","901 South Ave. W", Uri.parse("geo:46.847126, -114.009570?z=18"),"Grades 9-12"));
-        locs.add(new HoodLocation("Washington Middle School","645 W Central Ave, Missoula, MT 59801", Uri.parse("geo:46.850220, -114.006706?z=18"),"Grades 6-8"));
-        locs.add(new HoodLocation("Lewis and Clark Elementary","2901 Park St, Missoula, MT 59801", Uri.parse("geo:46.844243, -114.003219?z=18"),"Grades K-5"));
-        locs.add(new HoodLocation("Russell Elementary School","3216 S Russell St, Missoula, MT 59801", Uri.parse("geo:46.841076, -114.017504?z=18"),"Grades K-5"));
+        locs.add(new HoodLocation("Universal Athletic","Holiday Village Shopping Center, 1926 Brooks St, Missoula, MT 59801", Uri.parse("geo:46.852100, -114.010030?z=19"),"Sporting goods"));
+        locs.add(new HoodLocation("Albertson's","3800 S Russell St, Missoula, MT 59801", Uri.parse("geo:46.852100, -114.010030?z=19"),"Grocery store"));
+        locs.add(new HoodLocation("Pattee Creek Market","704 SW Higgins Ave, Missoula, MT 59803", Uri.parse("geo:46.836932, -114.010845?z=19"),"Grocery store"));
+        locs.add(new HoodLocation("Ace Hardware","Tremper's Shopping Center, 2205 Oxford St, Missoula, MT 59801", Uri.parse("geo:46.850211, -114.017564?z=19"),"Home improvemnt store"));
+        locs.add(new HoodLocation("Walgreens","Holiday Village Shopping Center, 2100 Brooks St, Missoula, MT 59801", Uri.parse("geo46.851069, -114.013197?z=19"),"Pharmacy"));
+        locs.add(new HoodLocation("Noon's", "1250 SW Higgins Ave, Missoula, MT 59803",Uri.parse("geo:46.834954, -114.017864?z=19"),"Gas station"));
+        locs.add(new HoodLocation("South Avenue Market","S Higgins Ave, Missoula, MT 59801",Uri.parse("geo:46.848553, -113.99777?z=19"),"Gas station"));
+
+
+
 
 
         HoodLocationAdapter itemsAdapter = new HoodLocationAdapter(this.getContext(), R.layout.list_item, locs);
         ListView listView = (ListView) rootView.findViewById(R.id.list);
+        listView.setBackgroundColor(getResources().getColor(R.color.colorShopping));
         listView.setAdapter(itemsAdapter);
-        listView.setBackgroundColor(getResources().getColor(R.color.colorSchools));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

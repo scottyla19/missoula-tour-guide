@@ -26,28 +26,35 @@ import com.example.android.missoulahoodguide.SchoolsFragment;
  * Provides the appropriate {@link Fragment} for a view pager.
  */
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
+    private String mtabTitles[] = new String[] { "Parks", "Schools" , "Dining", "Shopping"};
+    final int PAGE_COUNT = mtabTitles.length;
 
     public SimpleFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
+    public CharSequence getPageTitle(int position) {
+        return super.getPageTitle(position);
+//        return tabTitles[position];
+    }
+
+    @Override
     public Fragment getItem(int position) {
         if (position == 0) {
             return new ParksFragment();
-        } else if (position == 1){
+        } else  if (position == 1){
             return new SchoolsFragment();
-//        } else if (position == 2) {
-//            return new WednesdayFragment();
-//        } else if (position == 3) {
-//            return new ThursdayFragment();
-//        } else {
-//            return new FridayFragment();
+        } else if (position == 2) {
+            return new DiningFragment();
+        } else {
+            return new ShoppingFragment();
 //        }
+        }
     }
 
     @Override
     public int getCount() {
-        return 5;
+        return mtabTitles.length;
     }
 }
